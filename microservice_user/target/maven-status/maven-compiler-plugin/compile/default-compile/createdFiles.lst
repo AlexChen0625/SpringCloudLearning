@@ -1,0 +1,8 @@
+user/service/impl/UserServiceImpl.class
+user/UserApplication.class
+user/pojo/User.class
+user/dao/UserRepository.class
+user/service/UserService.class
+user/pojo/BaseObject.class
+user/controller/UserController.class
+user/pojo/User$UserBuilder.class

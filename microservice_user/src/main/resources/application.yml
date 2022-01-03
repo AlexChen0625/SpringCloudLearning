@@ -4,7 +4,7 @@ spring:
   application:
     name: mocroserver-user
   datasource:
-    url: jdbc:mysql://localhost:3306/springcloud?characterEncoding=UTF8&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://localhost:3306/springcloud?characterEncoding=UTF8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: password
@@ -12,3 +12,12 @@ spring:
     show-sql: true
     generate-ddl: true
     database: mysql
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url: #client url
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true  #優先使用該服務的IP位址註冊為url
+

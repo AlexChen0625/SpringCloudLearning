@@ -1,0 +1,11 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    fetch-registry: false #是否需要從eureka獲取註冊資料
+    register-with-eureka: false #是否需要向eureka
+    service-url:
+      defaultZone: http://127.0.0.1:${server.port}/eureka

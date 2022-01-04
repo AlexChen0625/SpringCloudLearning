@@ -3,9 +3,24 @@ server:
 spring:
   application:
     name: eureka-server
+
+#集群版配置
+#eureka:
+#  client:
+#    fetch-registry: true #是否需要從eureka獲取註冊資料
+#    register-with-eureka: true #是否需要向eureka
+#    service-url:
+#      defaultZone: http://127.0.0.1:8888/eureka
+#
+#
+
+#單機版配置
 eureka:
   client:
     fetch-registry: false #是否需要從eureka獲取註冊資料
     register-with-eureka: false #是否需要向eureka
     service-url:
       defaultZone: http://127.0.0.1:${server.port}/eureka
+  server:
+    eviction-interval-timer-in-ms: 5000 #修改掃描失效服務間隔時間(預設60000ms)
+    enable-self-preservation: false #取消自我保護機制(預設true)

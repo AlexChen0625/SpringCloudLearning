@@ -20,4 +20,5 @@ eureka:
       defaultZone: http://127.0.0.1:8888/eureka
   instance:
     prefer-ip-address: true  #優先使用該服務的IP位址註冊為url
-
+    lease-renewal-interval-in-seconds: 5 #心跳間隔時間
+    lease-expiration-duration-in-seconds: 10 #失效間隔時間

@@ -31,3 +31,24 @@
 
   ```@FeignClient(value = "microservice-user", fallback = UserControllerImpl.class)```
 
+## Hystrix Dashboard 熔斷監控面板
+
+- 新增一個module後 再啟動類加上
+
+  ```@EnableHystrixDashboard```
+
+- 在服務調用方得啟動類新增以下程式
+
+  ```@EnableHystrix```
+  ```
+  @Bean
+  public ServletRegistrationBean getServlet() {
+    HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+    ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
+    registrationBean.setLoadOnStartup(1);   	
+    registrationBean.addUrlMappings("/hystrix.stream");
+    registrationBean.setName("HystrixMetricsStreanServlet");
+    return registrationBean;
+  }
+  ```
+  在HystrixDahsboard(http://localhost:7777/hystrix) 輸入設定的url (http://localhost:9002/hystrix.stream)

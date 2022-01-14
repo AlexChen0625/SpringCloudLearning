@@ -4,6 +4,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import movie.client.UserController;
 import movie.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,7 @@ public class MovieController {
 		return new RestTemplate();
 	}
 
+	@Qualifier("movie.client.UserController")
 	@Autowired
 	private UserController userController;
 

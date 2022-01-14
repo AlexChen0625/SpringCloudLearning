@@ -25,3 +25,9 @@
 - 定義呼叫微服務失敗後的行為(e.g 調用失敗就執行fallback method)
 
   ```@HystrixCommand(fallbackMethod = "fallback")```
+
+
+- 使用OpenFegin內建的Hystrix 先建立熔斷後要執行的類,並加入在原本FeignClient中
+
+  ```@FeignClient(value = "microservice-user", fallback = UserControllerImpl.class)```
+

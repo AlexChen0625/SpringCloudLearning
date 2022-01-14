@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * 2. 檢查Requestmapping路徑是否完整
  * 3. @Pathvariable需宣告完整參數名稱
  */
-@FeignClient(value = "microservice-user")
+@FeignClient(value = "microservice-user", fallback = UserControllerImpl.class)
 public interface UserController {
 	@GetMapping(value = "/user/{id}")
 	public User findById(@PathVariable(value = "id") Integer id);

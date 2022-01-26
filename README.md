@@ -52,3 +52,18 @@
   }
   ```
   在HystrixDahsboard(http://localhost:7777/hystrix) 輸入設定的url (http://localhost:9002/hystrix.stream)
+
+## Zuul 動態路由
+
+- 新建一個服務,再啟動類加上```@EnableZuulProxy``
+- 配置application.yml路由規則
+  ```yaml
+  zuul:
+    routes:
+      microservice-movie:
+        path: /m/**
+        serviceId: microservice-movie
+      microservice-user:
+        path: /u/**
+        serviceId: microservice-user
+  ```
